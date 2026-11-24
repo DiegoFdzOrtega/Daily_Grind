@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Daily Grind</title>
+  <meta name="description" content="Rutinas semanales, seguimiento diario y control de peso.">
+  <meta name="theme-color" content="#e9ebee">
+
+  <!-- iPhone: instalar como app desde Safari -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Daily Grind">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 30 30" aria-hidden="true">
+        <circle cx="15" cy="15" r="14" fill="#d7263d"/>
+        <circle cx="15" cy="15" r="9" fill="none" stroke="rgba(0,0,0,.25)" stroke-width="2"/>
+        <circle cx="15" cy="15" r="4" fill="#e9ebee"/>
+      </svg>
+      Daily Grind
+    </div>
+    <div id="streak-pill" class="streak-pill" hidden></div>
+  </header>
+
+  <main id="view" class="view"></main>
+
+  <nav id="tabbar" class="tabbar" hidden>
+    <button data-tab="hoy" class="tab active" aria-label="Hoy">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>Hoy
+    </button>
+    <button data-tab="rutina" class="tab" aria-label="Rutina">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12h19"/><rect x="5" y="7" width="3" height="10" rx="1"/><rect x="16" y="7" width="3" height="10" rx="1"/><path d="M2.5 9.5v5M21.5 9.5v5"/></svg>Rutina
+    </button>
+    <button data-tab="calendario" class="tab" aria-label="Calendario">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Calendario
+    </button>
+    <button data-tab="peso" class="tab" aria-label="Peso">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M8.5 9.5a5 5 0 0 1 7 0"/><path d="M12 9l1.2-2"/></svg>Peso
+    </button>
+    <button data-tab="ajustes" class="tab" aria-label="Ajustes">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Ajustes
+    </button>
+  </nav>
+
+  <!-- Temporizador de descanso -->
+  <div id="timer" class="timer" role="timer" aria-live="off"></div>
+
+  <!-- Ficha de ejercicio -->
+  <div id="sheet-backdrop" class="sheet-backdrop" data-action="close-sheet"></div>
+  <div id="sheet" class="sheet" role="dialog" aria-modal="true" aria-label="Cómo se hace"></div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <input type="file" id="import-file" accept="application/json" hidden>
+
+  <script src="app.js"></script>
+</body>
+</html>
